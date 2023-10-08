@@ -1,6 +1,7 @@
-import { NotFound } from '@/components/screens/not-found/not-found.component.js'
+import { Layout } from '@/components/layout/layout.component'
+import { NotFound } from '@/components/screens/not-found/not-found.component'
 
-import { ROUTES } from './routes.data.js'
+import { ROUTES } from './routes.data'
 
 export class Router {
 	#routes = ROUTES
@@ -8,12 +9,12 @@ export class Router {
 	#layout = null
 
 	constructor() {
-        window.addEventListener('popstate', () => {
-            this.#handleRouteChange()
-        })
+		window.addEventListener('popstate', () => {
+			this.#handleRouteChange()
+		})
 
 		this.#handleRouteChange()
-        this.#handleLinks()
+		this.#handleLinks()
 	}
 
 	#handleLinks() {
@@ -49,7 +50,7 @@ export class Router {
 		}
 
 		this.#currentRoute = route
-		this.render()
+		this.#render()
 	}
 
 	#render() {
